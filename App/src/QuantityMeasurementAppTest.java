@@ -77,4 +77,27 @@ class QuantityMeasurementAppTest {
         assertFalse(i.equals(100),
                 "Inches should not equal non-Inches type");
     }
+    // =======================
+    // UC3: Cross Unit Tests
+    // =======================
+
+    @Test
+    void testEquality_FeetToInch_Equal() {
+        assertTrue(QuantityMeasurementApp.areQuantitiesEqual(
+                1.0,
+                QuantityMeasurementApp.LengthUnit.FEET,
+                12.0,
+                QuantityMeasurementApp.LengthUnit.INCH
+        ));
+    }
+
+    @Test
+    void testEquality_FeetToInch_NotEqual() {
+        assertFalse(QuantityMeasurementApp.areQuantitiesEqual(
+                1.0,
+                QuantityMeasurementApp.LengthUnit.FEET,
+                13.0,
+                QuantityMeasurementApp.LengthUnit.INCH
+        ));
+    }
 }

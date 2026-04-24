@@ -89,7 +89,6 @@ public class QuantityMeasurementApp {
             return factor;
         }
     }
-
     // =======================
     // UC3: Generic Quantity Class
     // =======================
@@ -153,6 +152,29 @@ public class QuantityMeasurementApp {
         boolean crossResult2 = areQuantitiesEqual(1.0, LengthUnit.FEET, 13.0, LengthUnit.INCH);
         System.out.println("UC3 - Input: 1.0 ft and 13.0 inch");
         System.out.println("UC3 - Output: Equal (" + crossResult2 + ")");
+
+
+        // =======================
+        // UC4 Execution
+        // =======================
+
+        System.out.println("===== UC4 =====");
+
+        System.out.println(
+                areQuantitiesEqual(1.0, LengthUnit.YARD, 3.0, LengthUnit.FEET)
+        );
+
+        System.out.println(
+                areQuantitiesEqual(1.0, LengthUnit.YARD, 36.0, LengthUnit.INCH)
+        );
+
+        System.out.println(
+                areQuantitiesEqual(2.0, LengthUnit.CENTIMETER, 2.0, LengthUnit.CENTIMETER)
+        );
+
+        System.out.println(
+                areQuantitiesEqual(1.0, LengthUnit.CENTIMETER, 0.393701, LengthUnit.INCH)
+        );
 
 
     }

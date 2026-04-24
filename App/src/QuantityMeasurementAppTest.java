@@ -100,4 +100,88 @@ class QuantityMeasurementAppTest {
                 QuantityMeasurementApp.LengthUnit.INCH
         ));
     }
+
+    // =======================
+    // UC4: YARD TESTS
+    // =======================
+
+    @Test
+    void testEquality_YardToFeet() {
+        assertTrue(QuantityMeasurementApp.areQuantitiesEqual(
+                1.0,
+                QuantityMeasurementApp.LengthUnit.YARD,
+                3.0,
+                QuantityMeasurementApp.LengthUnit.FEET
+        ));
+    }
+
+    @Test
+    void testEquality_YardToInch() {
+        assertTrue(QuantityMeasurementApp.areQuantitiesEqual(
+                1.0,
+                QuantityMeasurementApp.LengthUnit.YARD,
+                36.0,
+                QuantityMeasurementApp.LengthUnit.INCH
+        ));
+    }
+
+    @Test
+    void testEquality_YardDifferentValue() {
+        assertFalse(QuantityMeasurementApp.areQuantitiesEqual(
+                1.0,
+                QuantityMeasurementApp.LengthUnit.YARD,
+                2.0,
+                QuantityMeasurementApp.LengthUnit.YARD
+        ));
+    }
+
+    // =======================
+    // UC4: CENTIMETER TESTS
+    // =======================
+
+    @Test
+    void testEquality_CmToCm() {
+        assertTrue(QuantityMeasurementApp.areQuantitiesEqual(
+                2.0,
+                QuantityMeasurementApp.LengthUnit.CENTIMETER,
+                2.0,
+                QuantityMeasurementApp.LengthUnit.CENTIMETER
+        ));
+    }
+
+    @Test
+    void testEquality_CmToInch() {
+        assertTrue(QuantityMeasurementApp.areQuantitiesEqual(
+                1.0,
+                QuantityMeasurementApp.LengthUnit.CENTIMETER,
+                0.393701,
+                QuantityMeasurementApp.LengthUnit.INCH
+        ));
+    }
+
+    @Test
+    void testEquality_CmToFeetNegative() {
+        assertFalse(QuantityMeasurementApp.areQuantitiesEqual(
+                1.0,
+                QuantityMeasurementApp.LengthUnit.CENTIMETER,
+                1.0,
+                QuantityMeasurementApp.LengthUnit.FEET
+        ));
+    }
+
+    // =======================
+    // UC4: CROSS UNIT TEST
+    // =======================
+
+    @Test
+    void testEquality_YardToInchToFeetChain() {
+        assertTrue(
+                QuantityMeasurementApp.areQuantitiesEqual(
+                        2.0,
+                        QuantityMeasurementApp.LengthUnit.YARD,
+                        6.0,
+                        QuantityMeasurementApp.LengthUnit.FEET
+                )
+        );
+    }
 }
